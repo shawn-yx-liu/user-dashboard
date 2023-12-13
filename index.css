@@ -88,6 +88,7 @@ h1.time {
 h2.quote {
     margin: 0;
     font-size: 1.75rem;
+    max-width: 70%;
 }
 
 p.quote-author {

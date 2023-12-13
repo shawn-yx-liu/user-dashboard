@@ -1,5 +1,4 @@
 getBackground()
-getStocks()
 getCurrentTime()
 setInterval(getCurrentTime, 1000)
 getWeather()
@@ -8,7 +7,7 @@ loadTodos()
 
 function getBackground() {
   fetch(
-    'https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature+night'
+    'https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature-night'
   )
     .then((res) => res.json())
     .then((data) => {
@@ -28,26 +27,41 @@ function getBackground() {
     })
 }
 
-function getStocks() {
-  fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
-    .then((res) => {
-      if (!res.ok) {
-        throw Error('Something went wrong')
-      }
-      return res.json()
-    })
-    .then((data) => {
-      document.getElementById('crypto-top').innerHTML = `
-                <img src=${data.image.small} />
-                <span>${data.name}</span>
-            `
-      document.getElementById('crypto').innerHTML += `
-                <p>🎯: $${data.market_data.current_price.usd}</p>
-                <p>👆: $${data.market_data.high_24h.usd}</p>
-                <p>👇: $${data.market_data.low_24h.usd}</p>
-            `
-    })
-    .catch((err) => console.error(err))
+function checkEnter(event){
+    if (event.key === "Enter"){
+        getStockPrice()
+    }
+}
+
+function getStockPrice() {
+    const apiKey = 'QNVV8KJQH2QMWK7N' // Replace with your API key
+    const stockSymbol = document.getElementById('stockSymbol').value.toUpperCase()
+    const apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${apiKey}`
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data['Global Quote'])
+            if (data['Global Quote'] && Object.keys(data['Global Quote']).length > 0) {
+                const price = parseFloat(data['Global Quote']['05. price']);
+                const previousClose = parseFloat(data['Global Quote']['08. previous close']);
+                const change = price - previousClose;
+                const changePercentage = (change / previousClose) * 100;
+
+                document.getElementById('result').innerHTML = `
+                Current price of ${stockSymbol}: $${price.toFixed(2)}<br>
+                Today's Change: $${change.toFixed(2)} (${changePercentage.toFixed(2)}%)
+                `;
+            } else if (data['Information']) {
+                document.getElementById('result').innerHTML = 'Daily API limit reached. Please try again tomorrow.'
+            } else {
+                document.getElementById('result').innerHTML = 'Stock symbol not found. Please enter a valid symbol.';
+            }
+            })
+            .catch(error => {
+            console.error('Error fetching stock data:', error);
+            document.getElementById('result').innerHTML = 'Error fetching stock data. Please try again.';
+    });
 }
 
 function getCurrentTime() {
@@ -154,7 +168,6 @@ function loadTodos() {
     const todoList = document.getElementById('todo-list') 
     const todos = JSON.parse(localStorage.getItem('todos')) || []
 
-    console.log('todos: ', todos)
     todos.forEach(todo => {
         const todoItem = createTodoItem(todo.text)
         todoList.appendChild(todoItem)
