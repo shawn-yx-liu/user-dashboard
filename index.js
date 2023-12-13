@@ -35,7 +35,7 @@ function checkEnter(event){
 
 function getStockPrice() {
     const apiKey = 'QNVV8KJQH2QMWK7N' // Replace with your API key
-    const stockSymbol = document.getElementById('stockSymbol').value.toUpperCase()
+    const stockSymbol = document.getElementById('stock-symbol').value.toUpperCase()
     const apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${apiKey}`
 
     fetch(apiUrl)
@@ -48,19 +48,21 @@ function getStockPrice() {
                 const change = price - previousClose;
                 const changePercentage = (change / previousClose) * 100;
 
-                document.getElementById('result').innerHTML = `
-                Current price of ${stockSymbol}: $${price.toFixed(2)}<br>
-                Today's Change: $${change.toFixed(2)} (${changePercentage.toFixed(2)}%)
+                document.getElementById('stock-result').innerHTML = `
+                <p>
+                    Current price of ${stockSymbol}: $${price.toFixed(2)}<br>
+                    Today's Change: $${change.toFixed(2)} (${changePercentage.toFixed(2)}%)
+                </p>
                 `;
             } else if (data['Information']) {
-                document.getElementById('result').innerHTML = 'Daily API limit reached. Please try again tomorrow.'
+                document.getElementById('stock-result').innerHTML = '<p>Daily API limit reached. Please try again tomorrow.</p>'
             } else {
-                document.getElementById('result').innerHTML = 'Stock symbol not found. Please enter a valid symbol.';
+                document.getElementById('stock-result').innerHTML = '<p>Stock symbol not found. Please enter a valid symbol.</p>';
             }
             })
             .catch(error => {
             console.error('Error fetching stock data:', error);
-            document.getElementById('result').innerHTML = 'Error fetching stock data. Please try again.';
+            document.getElementById('stock-result').innerHTML = '<p>Error fetching stock data. Please try again.</p>';
     });
 }
 
@@ -84,7 +86,7 @@ function getWeather() {
         return res.json()
       })
       .then((data) => {
-        const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
         document.getElementById('weather').innerHTML = `
                     <img src=${iconUrl} />
                     <p class="weather-temp">${Math.round(data.main.temp)}º</p>
@@ -113,7 +115,7 @@ function getQuote() {
 
 function addTodo(event) {
   if (event.key === 'Enter') {
-    const todoText = document.getElementById('newTodo').value
+    const todoText = document.getElementById('new-todo').value
     if (todoText.trim() === '') {
       alert('Please enter a valid todo.')
       return
@@ -128,7 +130,7 @@ function addTodo(event) {
     updateLocalStorage()
 
     // Clear the input field
-    document.getElementById('newTodo').value = ''
+    document.getElementById('new-todo').value = ''
   }
 }
 

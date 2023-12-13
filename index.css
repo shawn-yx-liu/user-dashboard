@@ -27,22 +27,21 @@ div.top {
     justify-content: space-between;
 }
 
-div#crypto {
+div#stock {
     font-size: 1.3rem;
 }
 
-div#crypto > p {
-    margin: 0;
+input#stock-symbol, #new-todo {
+    color: lightgrey;
+    background-color: #3b3b3b;
 }
 
-div#crypto-top {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
+input#stock-symbol {
+    margin-bottom: 10px;
 }
 
-div#crypto-top > span {
-    margin-left: 10px;
+#stock-result p {
+    font-size: 1rem;
 }
 
 div#weather {
@@ -113,6 +112,7 @@ p#author:hover {
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     align-self: flex-end;
+    background-color: #181a1b;
 }
 
 ul#todo-list {
