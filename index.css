@@ -95,7 +95,45 @@ p.quote-author {
 }
 
 /* Bottom Styling */
+div.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
 
 p#author:hover {
     cursor: pointer;
+}
+
+.todo-wrapper {
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-self: flex-end;
+}
+
+ul#todo-list {
+    list-style-type: none;
+    margin-top: 0;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.todo-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.add-todo {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    box-sizing: border-box;
 }

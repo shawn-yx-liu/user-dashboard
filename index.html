@@ -17,7 +17,15 @@
                 <h2 id="quote" class="quote"></h2>
                 <p id="quote-author" class="quote-author"></p>
             </div>
-            <p id="author"></p>
+            <div class="bottom">
+                <p id="author"></p>
+                <div class="todo-wrapper">
+                    <ul id="todo-list"></ul>
+                    <div class="add-todo">
+                        <input type="text" id="newTodo" placeholder="Add a new todo" onkeydown="addTodo(event)">
+                    </div>
+                </div>
+            </div>
         </main>
         <script src="index.js"></script>
     </body>
