@@ -1,21 +1,26 @@
-# cdQDW2Uk
+# User Dashboard
+The user dashboard is is a browser extension that replaces your browser's new tab page with a new dashboard, providing access to the current time, weather, stock prices, and a personalized todo list.  I created this project as a way to practice my asynchronous JavaScript and API skills.  
 
-Quick start:
+## Getting Started
+### Build and Run the extension:
 
 ```
 $ npm install
 $ npm start
 ````
 
-Head over to https://vitejs.dev/ to learn more about using vite
-## About Scrimba
+### Add the Extension to your browser
+* Go to your Browser's Extensions page.
+* Toggle Developer Mode on.
+* Click "Load Unpacked" and select the user-dashboard folder.
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Frontend Developer Career Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+### Usage
+* Open a new tab in your browser to see your personalized dashboard.
+* Type in a stock ticker symbol and press "Enter" to view the current stock price and the day's change.
+* Type in some text and press "Enter" to add an item to your todo list.
 
-- [Our courses](https://scrimba.com/allcourses)
-- [The Frontend Career Path](https://scrimba.com/learn/frontend)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+# Authors
+[Shawn Liu](https://github.com/shawn8913)
 
-Happy Coding!
+# Acknowledgements:
+* [Scrimba Frontend Career Path](https://scrimba.com/learn/frontend)
