@@ -1,9 +1,27 @@
+addEventListeners()
 getBackground()
 getCurrentTime()
 setInterval(getCurrentTime, 1000)
 getWeather()
 getQuote()
 loadTodos()
+
+function addEventListeners() {
+    document.getElementById('stock-symbol').addEventListener('keypress', checkStockEnter)
+    document.getElementById('new-todo').addEventListener('keypress', checkEnterTodo)
+}
+
+function checkStockEnter(event){
+    if (event.key === "Enter"){
+        getStockPrice()
+    }
+}
+
+function checkEnterTodo(event){
+    if (event.key === "Enter"){
+        addTodo()
+    }
+}
 
 function getBackground() {
   fetch(
@@ -27,12 +45,6 @@ function getBackground() {
     })
 }
 
-function checkEnter(event){
-    if (event.key === "Enter"){
-        getStockPrice()
-    }
-}
-
 function getStockPrice() {
     const apiKey = 'QNVV8KJQH2QMWK7N' // Replace with your API key
     const stockSymbol = document.getElementById('stock-symbol').value.toUpperCase()
@@ -41,7 +53,6 @@ function getStockPrice() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            console.log(data['Global Quote'])
             if (data['Global Quote'] && Object.keys(data['Global Quote']).length > 0) {
                 const price = parseFloat(data['Global Quote']['05. price']);
                 const previousClose = parseFloat(data['Global Quote']['08. previous close']);
@@ -113,12 +124,11 @@ function getQuote() {
     })
 }
 
-function addTodo(event) {
-  if (event.key === 'Enter') {
+function addTodo() {
     const todoText = document.getElementById('new-todo').value
     if (todoText.trim() === '') {
-      alert('Please enter a valid todo.')
-      return
+        alert('Please enter a valid todo.')
+        return
     }
 
     const todoList = document.getElementById('todo-list')
@@ -131,7 +141,6 @@ function addTodo(event) {
 
     // Clear the input field
     document.getElementById('new-todo').value = ''
-  }
 }
 
 function createTodoItem(text) {
