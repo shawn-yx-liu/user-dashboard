@@ -5,9 +5,7 @@
 body {
     margin: 0;
     background: no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-color: #181a1b;
     background-size: cover;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -88,6 +86,7 @@ h2.quote {
     margin: 0;
     font-size: 1.75rem;
     max-width: 70%;
+    text-align: center;
 }
 
 p.quote-author {
