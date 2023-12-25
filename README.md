@@ -1,5 +1,5 @@
 # User Dashboard
-The user dashboard is is a browser extension that replaces your browser's new tab page with a new dashboard, providing access to the current time, weather, stock prices, and a personalized todo list.  I created this project as a way to practice my asynchronous JavaScript and API skills.  
+The [user dashboard](https://user-dashboard-shawnliu.netlify.app/) is is a browser extension that replaces your browser's new tab page with a new dashboard, providing access to the current time, weather, stock prices, and a personalized todo list.  I created this project as a way to practice my asynchronous JavaScript and API skills.  
 
 ### Built With
 [![Javascript][Javascript.js]][Javascript-url]\
