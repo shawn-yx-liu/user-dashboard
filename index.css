@@ -35,11 +35,19 @@ input#stock-symbol, #new-todo {
 }
 
 input#stock-symbol {
-    margin-bottom: 10px;
+    margin-bottom: 0;
+}
+
+#stock-result {
+    background-color: #181a1b;
+    border-radius: 8px;
 }
 
 #stock-result p {
     font-size: 1rem;
+    padding: 10px;
+    margin: 0;
+    line-height: 1.5em;
 }
 
 div#weather {
@@ -114,15 +122,21 @@ p#author:hover {
     background-color: #181a1b;
 }
 
+.todo-header {
+    padding-left: 25px;
+    border-bottom: 1px solid white;
+}
+
 ul#todo-list {
     list-style-type: none;
     margin-top: 0;
+    margin-bottom: 0;
     padding: 0;
 }
 
 .todo-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #eee;
@@ -130,6 +144,10 @@ ul#todo-list {
 
 .todo-item input[type="checkbox"] {
   margin-right: 10px;
+}
+
+.todo-text {
+    margin: 10px 10px 10px 0;
 }
 
 .add-todo {

@@ -60,11 +60,12 @@ function getStockPrice() {
                 const changePercentage = (change / previousClose) * 100;
 
                 document.getElementById('stock-result').innerHTML = `
-                <p>
+                <p class="stock-result-text">
                     Current price of ${stockSymbol}: $${price.toFixed(2)}<br>
                     Today's Change: $${change.toFixed(2)} (${changePercentage.toFixed(2)}%)
                 </p>
                 `;
+                
             } else if (data['Information']) {
                 document.getElementById('stock-result').innerHTML = '<p>Daily API limit reached. Please try again tomorrow.</p>'
             } else {
@@ -157,8 +158,9 @@ function createTodoItem(text) {
       }
     });
 
-    const todoTextSpan = document.createElement("span");
+    const todoTextSpan = document.createElement("p");
     todoTextSpan.innerText = text;
+    todoTextSpan.className = "todo-text";
 
     todoItem.appendChild(checkbox);
     todoItem.appendChild(todoTextSpan);
@@ -168,8 +170,9 @@ function createTodoItem(text) {
 
 function updateLocalStorage() {
     const todoList = document.getElementById("todo-list");
+    console.log("todos: ", Array.from(todoList.children));
     const todos = Array.from(todoList.children).map(item => ({
-      text: item.querySelector('span').innerText,
+      text: item.querySelector("p").innerText,
     }))
 
     localStorage.setItem('todos', JSON.stringify(todos))
