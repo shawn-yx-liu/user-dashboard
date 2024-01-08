@@ -152,6 +152,5 @@ ul#todo-list {
 
 .add-todo {
     padding: 10px;
-    border-top: 1px solid #eee;
     box-sizing: border-box;
 }
