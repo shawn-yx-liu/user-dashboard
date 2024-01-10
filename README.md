@@ -1,11 +1,14 @@
 # User Dashboard
-The [user dashboard](https://user-dashboard-shawnliu.netlify.app/) is is a browser extension that replaces your browser's new tab page with a new dashboard, providing access to the current time, weather, stock prices, and a personalized todo list.  I created this project as a way to practice my asynchronous JavaScript and API skills.  
+The [user dashboard](https://user-dashboard-shawnliu.netlify.app/) is is a browser extension that replaces your browser's new tab page with a new dashboard, providing access to the current time, weather, stock prices, an inspirational quote, and a personalized todo list.  I created this project as a way to practice my asynchronous JavaScript and API skills.  
 
 ### Built With
 [![Javascript][Javascript.js]][Javascript-url]\
 [![Html][Html.js]][Html-url]\
 [![CSS][CSS.js]][CSS-url]\
 [![Vite][Vite.js]][Vite-url]
+
+### Deployed With
+[![Netlify][Netlify.js]][Netlify-url]
 
 ## Getting Started
 ### Build and Run the extension:
@@ -43,3 +46,5 @@ $ npm start
 [CSS-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [Vite.js]: https://img.shields.io/badge/Vite-20232A?style=for-the-badge&logo=vite
 [Vite-url]: https://vitejs.dev/
+[Netlify.js]: https://img.shields.io/badge/Netlify-20232A?style=for-the-badge&logo=netlify
+[Netlify-url]: https://www.netlify.com/
